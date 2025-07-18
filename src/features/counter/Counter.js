@@ -1,17 +1,22 @@
-// components/Counter.js
+import { useCounter } from '../../customHooks/useCounter';
 import React from 'react'
-import useCounter from '../../customHooks/useCounter'
 
 const Counter = () => {
-  const { count, increment, decrement, reset, incrementByAmount } = useCounter();
+  const {reset, count, increment,decrement, incrementByAmount} = useCounter();
+  console.log(count)
+ 
 
   return (
-    <div>
-      <h1>Counter: {count}</h1>
-      <button onClick={increment}>Increment</button> {/* Don't call it here */}
-      <button onClick={decrement}>Decrement</button>
-      <button onClick={reset}>Reset</button>
-      <button onClick={() => incrementByAmount(5)}>Add +5</button>
+    <div className='bg-light vh-100 d-flex flex-column justify-content-center align-items-center'>
+      <h1 className='mb-4 textU'>Counter: <b>{count}</b> </h1>
+     
+     <div>
+       <button type="button" class="btn btn-primary" onClick={()=>increment()}>Increment</button> &nbsp;
+      <button type="button" class="btn btn-danger" onClick={()=>decrement()}>Decrement</button> &nbsp;
+<button type="button" class="btn btn-secondary" onClick={reset}>Reset</button>&nbsp;
+<button type="button" class="btn btn-success" onClick={()=>incrementByAmount(5)}>Add + 5</button>
+
+     </div>
     </div>
   );
 };
